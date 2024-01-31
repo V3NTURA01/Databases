@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NodeJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        h1{
+            color: blue;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: large;
+        }    
+        label{
+            color:  red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bienvenido a mi servidor web con NodeJS</h1>
+    <label>Nombre: </label>
+    <input type="text">
+    <button id="btn1">Send!</button>
+    <br>
+    <p id="p1">Este es un parrafo</p>
+    <br>
+    <label>GET: </label>
+    <p id="getdata"></p>
+
+    <script>
+        $(document).ready(function(){
+            $("#p1").hide();
+            $("#btn1").click(function(){
+                $("#p1").show();
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $.get("/extract", function(data, status){
+                for(var i = 0; i < data.length; i++){
+                    $("#getdata").append("ID: " + data[i].UbicacionID + " " 
+                    + "Ubicacion: " + data[i].Ubicacion + "<br>");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

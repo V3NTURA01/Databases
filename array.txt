@@ -1,0 +1,17 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    int x[] = {4, 5, 3, 9};
+    int i, len;
+    int *pointer = x;
+    
+    
+    len = sizeof(x) / sizeof(x[0]);
+    
+    for (i = 0; i < len; i++) {
+        printf("x[%d] = %d\n", i, *(pointer + i));
+    }
+
+    return 0;
+}

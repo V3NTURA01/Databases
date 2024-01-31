@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <string.h>
+struct carro{
+    int year;
+    int km;
+    char marca[5];
+    };
+    
+int main() {
+    struct carro c1;
+    c1.year = 2019;
+    c1.km = 56678;
+    //c1.marca = "Ford";
+    strcpy(c1.marca, "Ford");
+
+    printf("Carro 1: year = %d, km = %d, model = %s\n", c1.year, c1.km, c1.marca);
+
+    return 0;
+}
